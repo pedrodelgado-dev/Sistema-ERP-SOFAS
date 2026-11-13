@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.*?>
-<VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="pe.erp.sofas.ui.views.carrito.CarritoViewController"
-      style="-fx-spacing: 10; -fx-padding: 15">
-    <!-- El controlador CarritoViewController se encargará de poblar dinámicamente el contenido -->
-</VBox>

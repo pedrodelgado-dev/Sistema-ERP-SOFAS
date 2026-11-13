@@ -83,25 +83,22 @@ innova-sur-sofas/
 │   │   │   ├── model/         # Entidades JPA (Usuario, Pedido, etc.)
 │   │   │   ├── repository/    # Acceso a datos
 │   │   │   ├── service/       # Lógica de negocio
-│   │   │   │   ├── GestorCarritoService
 │   │   │   │   ├── CalculoPrecioService
 │   │   │   │   ├── GeneradorPDFService
 │   │   │   │   └── ...
 │   │   │   └── ui/            # Interfaz gráfica
 │   │   │       ├── views/
-│   │   │       │   ├── carrito/CarritoViewController
 │   │   │       │   └── ...
 │   │   │       └── three/     # Visualización 3D (JavaFX)
 │   │   └── resources/
-│   │       ├── fxml/          # Layouts (carrito.fxml, etc.)
+│   │       ├── fxml/          # Layouts (modelos.fxml, etc.)
 │   │       └── application.properties
 │   └── test/
 │       └── java/pe/innovasur/sofas/
 │           ├── service/       # Tests unitarios
 │           ├── ui/            # Tests de controladores
-│           └── integration/   # Tests E2E (CarritoFlowE2ETest)
+│           └── integration/   # Tests E2E
 ├── pom.xml                    # Dependencias Maven
-├── GUIA_USUARIO.md            # Documentación para usuarios
 └── INSTALACION_TECNICA.md     # Este archivo
 ```
 
@@ -192,16 +189,7 @@ El proyecto usa Maven Plugin para JavaFX:
 
 ## Servicios Clave
 
-### 1. GestorCarritoService
-```java
-obtenerOCrearCarrito(Usuario)      // Carrito por usuario
-agregarAlCarrito(Usuario, ID, qty)  // Agregar item
-actualizarCantidad(Usuario, ID, qty) // Modificar qty
-vaciarCarrito(Usuario)              // Limpiar carrito
-obtenerDetalleCarrito(Usuario)      // Resumen con totales
-```
-
-### 2. CalculoPrecioService
+### 1. CalculoPrecioService
 ```java
 calcularPrecio(ConfigSofa)          // Precio dinámico
 calcularCostoBOM(ConfigSofa)        // Costo materiales
@@ -209,18 +197,18 @@ calcularCostoMO(ConfigSofa)         // Costo mano de obra
 calcularConMargenYDescuento(...)    // Con descuentos
 ```
 
-### 3. GeneradorPDFService
+### 2. GeneradorPDFService
 ```java
 generarPresupuesto(ConfigSofa, cliente) // PDF con especificaciones
 ```
 
-### 4. CreadorPedidoService
+### 3. CreadorPedidoService
 ```java
-crearPedidosDesdeCarrito(Usuario, Cliente, vaciar)
+crearPedidos(Usuario, Cliente)
 generarCodigoPedido()               // PED-YYYYMM-XXXXX
 ```
 
-### 5. PersistenciaConfiguracionService
+### 4. PersistenciaConfiguracionService
 ```java
 guardar(Usuario, ConfigSofa, nombre, descripcion)
 cargar(ID, Usuario)
@@ -239,7 +227,6 @@ listarFavoritos(Usuario)
 
 ### Ejecutar tests de un paquete
 ```bash
-./mvnw test -Dtest=CarritoFlowE2ETest
 ./mvnw test -Dtest=CalculoPrecioServiceTest
 ```
 

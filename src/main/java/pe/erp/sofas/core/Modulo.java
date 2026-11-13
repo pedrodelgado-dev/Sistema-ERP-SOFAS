@@ -46,9 +46,6 @@ public enum Modulo {
     PEDIDOS("pedidos", "Pedidos a medida", "COMERCIAL", "ASSIGNMENT",
             "Pedidos estándar y personalizados, adelantos, órdenes y entregas."),
     @EquipoPLMD_MGML_AMCS_DRJB
-    CARRITO("carrito", "Carrito de compras", "COMERCIAL", "SHOPPING_CART",
-            "Carrito con configuraciones guardadas, cálculo de totales y generación de órdenes."),
-    @EquipoPLMD_MGML_AMCS_DRJB
     VENTAS("ventas", "Ventas (POS)", "COMERCIAL", "POINT_OF_SALE",
             "Punto de venta de la tienda con boleta o factura de prueba."),
     @EquipoPLMD_MGML_AMCS_DRJB
